@@ -1,32 +1,47 @@
-<p align="center">
-  <img src="assets/logo.png" alt="Archon" width="160" />
-</p>
-
-<h1 align="center">Archon</h1>
+<h1 align="center">🤖 Archon-Copilot</h1>
 
 <p align="center">
-  The first open-source harness builder for AI coding. Make AI coding deterministic and repeatable.
+  <strong>Archon + GitHub Copilot</strong> — deterministic AI coding workflows powered by GitHub Copilot CLI.
 </p>
 
 <p align="center">
-  <em>Supports Claude (Anthropic), Codex (OpenAI), and GitHub Copilot as interchangeable AI providers.</em>
-</p>
-
-<p align="center">
-  <a href="https://trendshift.io/repositories/13964" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13964" alt="coleam00%2FArchon | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <em>A fork of <a href="https://github.com/ZaltaClaw/Archon-Copilot">Archon</a> with first-class GitHub Copilot support alongside Claude and Codex.</em>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
-  <a href="https://github.com/coleam00/Archon/actions/workflows/test.yml"><img src="https://github.com/coleam00/Archon/actions/workflows/test.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/ZaltaClaw/Archon-Copilot"><img src="https://img.shields.io/badge/GitHub-Archon--Copilot-181717?logo=github" alt="GitHub" /></a>
+  <a href="https://github.com/features/copilot"><img src="https://img.shields.io/badge/GitHub_Copilot-Supported-5B5EA6?logo=github" alt="GitHub Copilot" /></a>
   <a href="https://archon.diy"><img src="https://img.shields.io/badge/docs-archon.diy-blue" alt="Docs" /></a>
 </p>
 
 ---
 
-Archon is a workflow engine for AI coding agents. Define your development processes as YAML workflows - planning, implementation, validation, code review, PR creation - and run them reliably across all your projects.
+> **🔀 Fork Note:** This is a fork of [coleam00/Archon](https://github.com/coleam00/Archon) with GitHub Copilot CLI added as a first-class provider. All original Archon functionality is preserved — Claude and Codex work exactly as before.
+
+---
+
+Archon-Copilot is a workflow engine for AI coding agents, with **native GitHub Copilot support**. Define your development processes as YAML workflows - planning, implementation, validation, code review, PR creation - and run them reliably across all your projects using **GitHub Copilot**, Claude, or Codex as the AI engine.
 
 Like what Dockerfiles did for infrastructure and GitHub Actions did for CI/CD - Archon does for AI coding workflows. Think n8n, but for software development.
+
+## 🔑 Why GitHub Copilot?
+
+If your team already uses **GitHub Copilot** (most enterprises do), Archon-Copilot lets you use that same subscription for structured AI coding workflows:
+
+- **No extra API keys** — uses your existing GitHub Copilot license
+- **Enterprise-ready** — runs through your org’s GitHub authentication
+- **Full agentic capabilities** — session resume, MCP support, tool restrictions, effort control
+- **Interchangeable** — swap between Copilot, Claude, and Codex per-workflow or per-node
+
+```yaml
+# Use Copilot as the default provider
+assistants:
+  default: copilot
+  copilot:
+    model: gpt-4
+    reasoningEffort: high
+```
 
 ## Why Archon?
 
@@ -95,7 +110,7 @@ Agent: I'll run the archon-idea-to-pr workflow for this.
 
 ## Previous Version
 
-Looking for the original Python-based Archon (task management + RAG)? It's fully preserved on the [`archive/v1-task-management-rag`](https://github.com/coleam00/Archon/tree/archive/v1-task-management-rag) branch.
+Looking for the original Python-based Archon (task management + RAG)? It's fully preserved on the [`archive/v1-task-management-rag`](https://github.com/ZaltaClaw/Archon-Copilot/tree/archive/v1-task-management-rag) branch.
 
 ## Getting Started
 
@@ -146,7 +161,7 @@ irm https://claude.ai/install.ps1 | iex
 </details>
 
 ```bash
-git clone https://github.com/coleam00/Archon
+git clone https://github.com/ZaltaClaw/Archon-Copilot
 cd Archon
 bun install
 claude
@@ -321,7 +336,7 @@ Full documentation is available at **[archon.diy](https://archon.diy)**.
 
 ## Contributing
 
-Contributions welcome! See the open [issues](https://github.com/coleam00/Archon/issues) for things to work on.
+Contributions welcome! See the open [issues](https://github.com/ZaltaClaw/Archon-Copilot/issues) for things to work on.
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
 
