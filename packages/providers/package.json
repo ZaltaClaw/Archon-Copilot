@@ -13,6 +13,9 @@
     "./codex/provider": "./src/codex/provider.ts",
     "./codex/config": "./src/codex/config.ts",
     "./codex/binary-resolver": "./src/codex/binary-resolver.ts",
+    "./copilot/provider": "./src/copilot/provider.ts",
+    "./copilot/config": "./src/copilot/config.ts",
+    "./copilot/binary-resolver": "./src/copilot/binary-resolver.ts",
     "./errors": "./src/errors.ts",
     "./registry": "./src/registry.ts"
   },

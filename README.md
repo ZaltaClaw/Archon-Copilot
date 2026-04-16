@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <em>Supports Claude (Anthropic), Codex (OpenAI), and GitHub Copilot as interchangeable AI providers.</em>
+</p>
+
+<p align="center">
   <a href="https://trendshift.io/repositories/13964" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13964" alt="coleam00%2FArchon | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
@@ -284,7 +288,7 @@ The Web UI and CLI work out of the box. Optionally connect a chat platform for r
       ▼                ▼          ▼                ▼
 ┌───────────┐  ┌────────────┐  ┌──────────────────────────┐
 │  Command  │  │  Workflow  │  │    AI Assistant Clients  │
-│  Handler  │  │  Executor  │  │      (Claude / Codex)    │
+│  Handler  │  │  Executor  │  │ (Claude / Codex / Copilot)│
 │  (Slash)  │  │  (YAML)    │  │                          │
 └───────────┘  └────────────┘  └──────────────────────────┘
       │              │                      │
@@ -310,7 +314,7 @@ Full documentation is available at **[archon.diy](https://archon.diy)**.
 | [Authoring Workflows](https://archon.diy/guides/authoring-workflows/) | Create custom YAML workflows |
 | [Authoring Commands](https://archon.diy/guides/authoring-commands/) | Create reusable AI commands |
 | [Configuration](https://archon.diy/reference/configuration/) | All config options, env vars, YAML settings |
-| [AI Assistants](https://archon.diy/getting-started/ai-assistants/) | Claude and Codex setup details |
+| [AI Assistants](https://archon.diy/getting-started/ai-assistants/) | Claude, Codex, and GitHub Copilot setup details |
 | [Deployment](https://archon.diy/deployment/) | Docker, VPS, production setup |
 | [Architecture](https://archon.diy/reference/architecture/) | System design and internals |
 | [Troubleshooting](https://archon.diy/reference/troubleshooting/) | Common issues and fixes |

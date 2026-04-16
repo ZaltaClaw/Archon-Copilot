@@ -16,26 +16,35 @@
 import type {
   ClaudeProviderDefaults,
   CodexProviderDefaults,
+  CopilotProviderDefaults,
   ProviderDefaultsMap,
 } from '@archon/providers/types';
 
-export type { ClaudeProviderDefaults, CodexProviderDefaults, ProviderDefaultsMap };
+export type {
+  ClaudeProviderDefaults,
+  CodexProviderDefaults,
+  CopilotProviderDefaults,
+  ProviderDefaultsMap,
+};
 
 /**
  * Intersection type: generic ProviderDefaultsMap (any string key) with typed built-in entries.
- * Built-in keys are typed so parseClaudeConfig/parseCodexConfig get type safety without casts.
- * Community providers use the generic [string] index. This is intentional — removing the
- * built-in intersection would force `as` casts everywhere built-in config is accessed.
+ * Built-in keys are typed so parseClaudeConfig/parseCodexConfig/parseCopilotConfig get type
+ * safety without casts. Community providers use the generic [string] index. This is
+ * intentional — removing the built-in intersection would force `as` casts everywhere
+ * built-in config is accessed.
  */
 export type AssistantDefaultsConfig = ProviderDefaultsMap & {
   claude?: ClaudeProviderDefaults;
   codex?: CodexProviderDefaults;
+  copilot?: CopilotProviderDefaults;
 };
 
 /** Required variant — built-ins always present after config merge (registerBuiltinProviders guarantees it). */
 export type AssistantDefaults = ProviderDefaultsMap & {
   claude: ClaudeProviderDefaults;
   codex: CodexProviderDefaults;
+  copilot: CopilotProviderDefaults;
 };
 
 export interface GlobalConfig {

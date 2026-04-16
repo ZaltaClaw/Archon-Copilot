@@ -35,12 +35,18 @@ export { UnknownProviderError } from './errors';
 // Provider classes
 export { ClaudeProvider } from './claude/provider';
 export { CodexProvider } from './codex/provider';
+export { CopilotProvider } from './copilot/provider';
 
 // Config parsers
 export { parseClaudeConfig, type ClaudeProviderDefaults } from './claude/config';
 export { parseCodexConfig, type CodexProviderDefaults } from './codex/config';
+export { parseCopilotConfig, type CopilotProviderDefaults } from './copilot/config';
 
 // Utilities (needed by consumers)
 export { resetCodexSingleton } from './codex/provider';
 export { resolveCodexBinaryPath, fileExists as codexFileExists } from './codex/binary-resolver';
 export { resolveClaudeBinaryPath, fileExists as claudeFileExists } from './claude/binary-resolver';
+export {
+  resolveCopilotBinaryPath,
+  fileExists as copilotFileExists,
+} from './copilot/binary-resolver';

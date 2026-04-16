@@ -56,6 +56,7 @@ function mergeAssistantDefaults(
     ...base,
     claude: { ...(base.claude ?? {}) },
     codex: { ...(base.codex ?? {}) },
+    copilot: { ...(base.copilot ?? {}) },
   };
 
   if (!overrides) return merged;
@@ -82,6 +83,9 @@ function toSafeAssistantDefaults(assistants: AssistantDefaults): SafeConfig['ass
     delete safeDefaults.additionalDirectories;
     delete safeDefaults.settingSources;
     delete safeDefaults.codexBinaryPath;
+    delete safeDefaults.claudeBinaryPath;
+    delete safeDefaults.copilotBinaryPath;
+    delete safeDefaults.configDir;
 
     safeAssistants[providerId] = safeDefaults;
   }
@@ -115,7 +119,7 @@ const DEFAULT_CONFIG_CONTENT = `# Archon Global Configuration
 # Bot display name (shown in messages)
 # botName: Archon
 
-# Default AI assistant (must match a registered provider, e.g. claude, codex)
+# Default AI assistant (must match a registered provider: claude, codex, copilot)
 # defaultAssistant: claude
 
 # Assistant defaults
@@ -128,6 +132,14 @@ const DEFAULT_CONFIG_CONTENT = `# Archon Global Configuration
 #     webSearchMode: disabled
 #     additionalDirectories:
 #       - /absolute/path/to/other/repo
+#   copilot:
+#     model: claude-sonnet-4.5
+#     reasoningEffort: medium
+#     mode: autopilot
+#     additionalDirectories:
+#       - /absolute/path/to/other/repo
+#     copilotBinaryPath: /usr/local/bin/copilot
+#     configDir: /absolute/path/to/per-project/.copilot
 
 # Streaming mode per platform (stream or batch)
 # streaming:
@@ -233,6 +245,7 @@ function getDefaults(): MergedConfig {
   const registeredAssistants: AssistantDefaults = {
     claude: {},
     codex: {},
+    copilot: {},
   };
   for (const provider of getRegisteredProviders()) {
     if (!(provider.id in registeredAssistants)) {

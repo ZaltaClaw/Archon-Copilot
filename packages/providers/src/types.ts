@@ -31,6 +31,21 @@ export interface CodexProviderDefaults {
   codexBinaryPath?: string;
 }
 
+export interface CopilotProviderDefaults {
+  [key: string]: unknown;
+  model?: string;
+  /** GitHub Copilot CLI reasoning effort (matches `--effort` flag). */
+  reasoningEffort?: 'low' | 'medium' | 'high' | 'xhigh';
+  /** Agent mode — controls how Copilot plans and executes (matches `--mode`). */
+  mode?: 'interactive' | 'plan' | 'autopilot';
+  /** Additional directories the agent may read/write outside cwd. */
+  additionalDirectories?: string[];
+  /** Path to the `copilot` CLI binary. Overrides auto-detection in compiled builds. */
+  copilotBinaryPath?: string;
+  /** Override COPILOT_HOME for per-session config isolation (defaults to `~/.copilot`). */
+  configDir?: string;
+}
+
 /** Generic per-provider defaults bag used by config surfaces and UI. */
 export type ProviderDefaults = Record<string, unknown>;
 

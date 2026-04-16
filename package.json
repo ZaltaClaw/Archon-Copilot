@@ -1,6 +1,7 @@
 {
-  "name": "archon",
+  "name": "archon-copilot",
   "version": "0.3.6",
+  "description": "Archon workflow engine with GitHub Copilot CLI provider — deterministic AI coding workflows across Claude, Codex, and Copilot.",
   "private": true,
   "workspaces": [
     "packages/*"

@@ -15,8 +15,10 @@ import type {
 } from './types';
 import { ClaudeProvider } from './claude/provider';
 import { CodexProvider } from './codex/provider';
+import { CopilotProvider } from './copilot/provider';
 import { CLAUDE_CAPABILITIES } from './claude/capabilities';
 import { CODEX_CAPABILITIES } from './codex/capabilities';
+import { COPILOT_CAPABILITIES } from './copilot/capabilities';
 import { UnknownProviderError } from './errors';
 import { createLogger } from '@archon/paths';
 
@@ -127,6 +129,21 @@ export function registerBuiltinProviders(): void {
         return (
           !claudeAliases.includes(model) && !model.startsWith('claude-') && model !== 'inherit'
         );
+      },
+      builtIn: true,
+    },
+    {
+      id: 'copilot',
+      displayName: 'GitHub Copilot',
+      factory: () => new CopilotProvider(),
+      capabilities: COPILOT_CAPABILITIES,
+      isModelCompatible: (model: string): boolean => {
+        // Copilot CLI accepts any model string its backend exposes (gpt-*,
+        // claude-*, o-series, etc.). Exclude only Anthropic-ergonomic aliases
+        // that the CLI does not understand directly ('sonnet', 'opus', 'haiku')
+        // and the Archon-internal 'inherit' sentinel.
+        const claudeAliases = ['sonnet', 'opus', 'haiku'];
+        return !claudeAliases.includes(model) && model !== 'inherit';
       },
       builtIn: true,
     },
